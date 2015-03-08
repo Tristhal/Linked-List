@@ -13,6 +13,13 @@ public class LTest{
 		System.out.println(nums.returnhead());
 		nums.enqueue(5);
 		System.out.println(nums);
+		nums.dequeue();
+		System.out.println(nums);
+		System.out.println(nums.returntail());
+		nums.delete(nums.returntail());
+		System.out.println(nums);
+		nums.delete(nums.returntail());
+		System.out.println(nums);
 	}
 
 }

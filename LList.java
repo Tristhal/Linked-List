@@ -7,17 +7,23 @@ public class LList{
 		head = null;
 	}
 	///
-	public void add(final int n){
+	public void push(final int n){
 		LNode tmp = new LNode(n, head);
-		head.setLast(tmp);
 		if (head==null){
 			tail=tmp;
 		}
 		head = tmp;
+		if(head.getLast()==null){
+			
+		}
+		else{
+			head.setLast(tmp);
+		}
 	}
 	public LNode pop(){
 		LNode tmp=head;
 		head=head.getNext();
+		head.setLast(null);
 		return tmp;
 	}
 	///
@@ -31,6 +37,35 @@ public class LList{
 		return pop();
 	}
 	///
+	public void delete(LNode e){
+		if(e.getNext()==null || e.getLast()==null){
+			if(e==tail){
+				if(e==head){
+					tail=null;
+					head=null;
+				}
+				else{
+					tail=e.getLast();
+					tail.setNext(null);
+				}
+			}
+			else if(e==head){
+				head=e.getNext();
+				head.setLast(null);
+			}
+			else{
+				e.getNext().setLast(null);
+				e.getLast().setNext(null);			
+			}
+
+		}
+		else{
+			e.getNext().setLast(e.getLast());
+			e.getLast().setNext(e.getNext());
+		}
+		
+		
+	}
 	public LNode returntail(){
 		return tail;
 	}

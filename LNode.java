@@ -11,6 +11,7 @@ public class LNode{
 
 	public int getVal(){return val;}
 	public LNode getNext(){return next;}
+	public LNode getLast(){return last;}
 
 	public void setVal(final int val){this.val = val;}
 	public void setNext(final LNode next){this.next = next;}
