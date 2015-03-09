@@ -18,6 +18,8 @@ public class LTest{
 		System.out.println(nums.returnhead());
 		nums.sortedInsert(new LNode(50,null));
 		System.out.println(nums);
+		nums.reverse();
+		System.out.println(nums);
 	}
 
 }

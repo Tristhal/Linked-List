@@ -146,6 +146,29 @@ public class LList{
 			}
 		}
 	}
+	public void reverse(){
+		LNode observed= tail;
+		LNode lst;
+		LNode nxt;
+		while (true){
+			if(observed==head){
+				lst=observed.getNext();
+				nxt=observed.getLast();
+				observed.setNext(nxt);
+				observed.setLast(lst);
+				LNode tmp=head;
+				head=tail;
+				tail=tmp;
+				break;
+			}
+			lst=observed.getNext();
+			nxt=observed.getLast();
+			observed.setNext(nxt);
+			observed.setLast(lst);
+			observed=observed.getNext();
+			
+		}
+	}
 	public LNode returntail(){
 		return tail;
 	}
