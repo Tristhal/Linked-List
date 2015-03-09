@@ -16,7 +16,7 @@ public class LTest{
 		nums.dequeue();
 		System.out.println(nums);
 		System.out.println(nums.returnhead());
-		nums.delete(5);
+		nums.deleteAt(1);
 		System.out.println(nums);
 	}
 
