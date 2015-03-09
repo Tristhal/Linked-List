@@ -16,7 +16,7 @@ public class LTest{
 		nums.dequeue();
 		System.out.println(nums);
 		System.out.println(nums.returnhead());
-		nums.deleteAt(1);
+		nums.sortedInsert(new LNode(50,null));
 		System.out.println(nums);
 	}
 

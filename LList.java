@@ -116,6 +116,36 @@ public class LList{
 		}
 		delete(observed);
 	}
+	public void sortedInsert(LNode e){
+		LNode observed=tail;
+		int i=0;
+		while(true){
+			if(observed.getVal()>=e.getVal()){
+				if(observed==tail){
+					enqueue(e.getVal());
+					break;
+					
+				}
+				else{
+					e.setNext(observed.getNext());
+					e.getNext().setLast(e);
+					e.setLast(observed);
+					observed.setNext(e);
+					
+					break;
+					
+				}
+			}
+			else if(observed==head){
+				push(e.getVal());
+				break;
+			}
+			else{
+				observed=observed.getLast();
+				i++;
+			}
+		}
+	}
 	public LNode returntail(){
 		return tail;
 	}
