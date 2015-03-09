@@ -25,6 +25,14 @@ public class LTest{
 		nums.sortedInsert(50);
 		nums.sortedInsert(58);
 		nums.removeDuplicates();
+		LList second=nums.clone();
+		System.out.println(second);
+		second.sortedInsert(23);
+		System.out.println(second);
+		System.out.println(nums);
+		nums.enqueue(5);
+		System.out.println(nums);
+		nums.dequeue();
 		System.out.println(nums);
 	}
 

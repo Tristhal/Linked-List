@@ -35,10 +35,15 @@ public class LList{
 	}
 	///
 	public void enqueue(final int n){//add to the tail 
-		LNode temp=new LNode(n,null);
-		temp.setLast(tail);//reworks pointers
-		tail.setNext(temp);
-		tail=temp;
+		if(head==null){
+			push(n);
+		}
+		else{
+			LNode temp=new LNode(n,null);
+			temp.setLast(tail);//reworks pointers
+			tail.setNext(temp);
+			tail=temp;
+		}
 	}
 	public LNode dequeue(){//pop
 		return pop();
@@ -117,11 +122,13 @@ public class LList{
 		}
 		delete(observed);
 	}
-	public void sortedInsert(int num){
+	public void sortedInsert(int num){//goes through untill the value
+	//of a lnode is >=num then it insertes it behind that
 		LNode e= new LNode(num,null);
 		LNode observed=tail;
 		int i=0;
 		while(true){
+			System.out.println(observed.getLast());
 			if(observed.getVal()>=e.getVal()){
 				if(observed==tail){
 					enqueue(e.getVal());
@@ -138,7 +145,7 @@ public class LList{
 					
 				}
 			}
-			else if(observed==head){
+			else if(observed==head){//largest value in the list case
 				LNode temp=head;
 				push(e.getVal());
 				temp.setLast(head);
@@ -150,7 +157,7 @@ public class LList{
 			}
 		}
 	}
-	public void reverse(){
+	public void reverse(){//swaps last and next and head and tail
 		LNode observed= tail;
 		LNode lst;
 		LNode nxt;
@@ -173,7 +180,8 @@ public class LList{
 			
 		}
 	}
-	public void removeDuplicates(){
+	public void removeDuplicates(){//stores used values and removes
+	//nodes that are repeated
 		LNode observed=tail;
 		ArrayList<Integer> used=new ArrayList<Integer>();
 		while (true){
@@ -198,11 +206,31 @@ public class LList{
 			
 		}
 	}
+	public LList clone(){//it starts from the head and
+	//adds reconstructs the list by inputting lnode values values to the tail
+		LList copy=new LList();
+		copy.enqueue(head.getVal());
+		LNode observed=head;
+		while (true){
+			if (observed==tail){
+				break;
+			}
+			observed=observed.getNext();
+			copy.enqueue(observed.getVal());
+			
+			
+		}
+		return copy;
+		
+	}
 	public LNode returntail(){
 		return tail;
 	}
 	public LNode returnhead(){
 		return head;
+	}
+	public void setTail(LNode t){
+		tail=t;
 	}
 	public String toString(){
 		String ans = "";
