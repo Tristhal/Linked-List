@@ -63,7 +63,29 @@ public class LList{
 			e.getNext().setLast(e.getLast());
 			e.getLast().setNext(e.getNext());
 		}
-		
+	}
+	public void delete(int n){
+		LNode observed=tail;
+		if(observed.getVal()==n){
+			delete(observed);
+		}
+		else{
+			while (true){
+				observed=observed.getLast();
+				if(observed==head){
+					if(observed.getVal()==n){
+						delete(observed);
+						
+					}
+					break;
+				}
+				else if(observed.getVal()==n){
+					delete(observed);
+					break;
+				}
+				
+			}
+		}
 		
 	}
 	public LNode returntail(){
