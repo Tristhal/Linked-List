@@ -2,6 +2,7 @@
 //LList.java
 //
 //Represents a linked list and manipulates it
+import java.util.*;
 public class LList{
 
 	private LNode head;
@@ -116,7 +117,8 @@ public class LList{
 		}
 		delete(observed);
 	}
-	public void sortedInsert(LNode e){
+	public void sortedInsert(int num){
+		LNode e= new LNode(num,null);
 		LNode observed=tail;
 		int i=0;
 		while(true){
@@ -137,7 +139,9 @@ public class LList{
 				}
 			}
 			else if(observed==head){
+				LNode temp=head;
 				push(e.getVal());
+				temp.setLast(head);
 				break;
 			}
 			else{
@@ -166,6 +170,31 @@ public class LList{
 			observed.setNext(nxt);
 			observed.setLast(lst);
 			observed=observed.getNext();
+			
+		}
+	}
+	public void removeDuplicates(){
+		LNode observed=tail;
+		ArrayList<Integer> used=new ArrayList<Integer>();
+		while (true){
+			if (observed==head){
+				if(used.contains(observed.getVal())){
+					LNode tmp=observed;
+					observed=observed.getLast();
+					delete(tmp);
+				}
+				break;
+			}
+			else if(used.contains(observed.getVal())){
+				LNode tmp=observed;
+				observed=observed.getLast();
+				delete(tmp);
+			}
+			else{
+				used.add(observed.getVal());
+				observed=observed.getLast();
+			}
+			
 			
 		}
 	}

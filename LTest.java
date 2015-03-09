@@ -16,9 +16,15 @@ public class LTest{
 		nums.dequeue();
 		System.out.println(nums);
 		System.out.println(nums.returnhead());
-		nums.sortedInsert(new LNode(50,null));
+		nums.sortedInsert(50);
 		System.out.println(nums);
-		nums.reverse();
+		//nums.reverse();
+		System.out.println(nums);
+		nums.sortedInsert(50);
+		nums.sortedInsert(50);
+		nums.sortedInsert(50);
+		nums.sortedInsert(58);
+		nums.removeDuplicates();
 		System.out.println(nums);
 	}
 
