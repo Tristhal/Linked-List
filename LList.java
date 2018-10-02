@@ -9,7 +9,7 @@ public class LList{
 	private LNode tail;
 
 	public LList(){
-		head = null;
+		head = null;I want a free shirt for hacktoberfest. Disregard
 	}
 	///
 	public void push(final int n){//adds to the head 
